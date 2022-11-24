@@ -16,8 +16,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 /**
- *
- * @author Andrey Salamanca
+ * @author Andrey Salamanca Campos, Maverick Magrigal Bryan, Estefani Valverde Marín
+ * @version (24/11/2022)
  */
 
 

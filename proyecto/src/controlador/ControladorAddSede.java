@@ -9,13 +9,18 @@ import java.util.*;
 import vista.*;
 import modelo.*;
 /**
- *
- * @author Andrey Salamanca
+ * @author Andrey Salamanca Campos, Maverick Magrigal Bryan, Estefani Valverde Marín
+ * @version (24/11/2022)
  */
 public class ControladorAddSede implements ActionListener{
     public Menu vistaMenu;
     RegistroSede vista;
     
+    /**
+     * 
+     * @param ventana Ventana actual
+     * @param anterior Ventana anterior
+     */
     public ControladorAddSede(RegistroSede ventana, Menu anterior){
         vistaMenu = anterior;
         vista = ventana;
