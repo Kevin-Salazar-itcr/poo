@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
 
 
@@ -29,8 +26,9 @@ import modelo.Sede;
 import modelo.Vehiculo;
 
 /**
- *
- * @author 
+ * Controlador de reserva
+ * @author Andrey Salamanca Campos, Maverick Magrigal Bryan, Estefani Valverde Marín
+ * @version (24/11/2022)
  */
 public class ControladorAddReserva implements ActionListener{
     public RealizarReserva vista;
@@ -39,6 +37,11 @@ public class ControladorAddReserva implements ActionListener{
     public com.raven.datechooser.DateChooser dateChooser2;
     ArrayList<Vehiculo> vehiculos;
     
+    /**
+     * 
+     * @param ventana Vista actual
+     * @param vistaMenu Vista anterior
+     */
     public ControladorAddReserva(RealizarReserva ventana, Menu vistaMenu) {
         vista = ventana;
         menu = vistaMenu;
