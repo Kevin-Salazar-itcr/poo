@@ -15,14 +15,21 @@ import vista.*;
 import modelo.*;
 /**
  *
- * @author Andrey Salamanca
+ * @author Andrey Salamanca, Maverick Madrigal Bryan, Estefani Valverde
  */
+
+
 public class ControladorLogin implements ActionListener{
     public Menu vistaMenu;
     public login vista;
     public ArrayList<Integer> listaClientes;
     public lectorClientes l;
     
+    /**
+     * 
+     * @param ventana
+     * @param anterior 
+     */
     public ControladorLogin(login ventana, Menu anterior){
         l = new lectorClientes();
         listaClientes = new ArrayList<Integer>() ;
@@ -36,6 +43,10 @@ public class ControladorLogin implements ActionListener{
     }
     
     @Override
+    /**
+     * funcion extraida de la interface ActionListener
+     * Controla los objetos de la ventana
+     */
     public void actionPerformed(ActionEvent e){
         switch(e.getActionCommand()){
             case "Continuar":
@@ -50,6 +61,9 @@ public class ControladorLogin implements ActionListener{
         } 
     }
     
+    /**
+     * Revisa que haya clientes antes de inicier
+     */
     public void initClientes(){    
         try {
             if(l.run()){
@@ -67,6 +81,9 @@ public class ControladorLogin implements ActionListener{
             listaClientes.add(c.getCedula());
     }
     
+    /**
+     * Funcion que inicia sesion
+     */
     public void logueo(){
         try{
             int cedula = Integer.parseInt(vista.jTextField1.getText());

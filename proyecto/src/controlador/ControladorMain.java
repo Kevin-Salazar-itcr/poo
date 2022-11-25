@@ -9,11 +9,14 @@ import vista.*;
 import modelo.*;
 /**
  *
- * @author Andrey Salamanca
+ * @author Andrey Salamanca, Maverick Madrigal, Bryan
  */
 public class ControladorMain implements ActionListener{
     public Menu vistaMenu;
-    
+    /**
+     * Funcion main
+     * @param ventana 
+     */
     public ControladorMain(Menu ventana){
         vistaMenu = ventana;
         
@@ -28,6 +31,9 @@ public class ControladorMain implements ActionListener{
     }
     
     @Override
+    /**
+     * Funcion obtenida por ActionListener
+     */
     public void actionPerformed(ActionEvent e){
         switch(e.getActionCommand()){
             case "Registrar cliente por medio de correo electrónico":
@@ -58,6 +64,9 @@ public class ControladorMain implements ActionListener{
         } 
     }
     
+    /**
+     * Funcion que inicia la ventana de agregar vehiculo
+     */
     public void iniciarVentanaAgregarVehiculo(){
         
         
@@ -78,6 +87,9 @@ public class ControladorMain implements ActionListener{
         ventana.setLocationRelativeTo(null);
     }
     
+    /**
+     * Funcion iniciar ventana de reserva 
+     */
     public void iniciarVentanaReserva(){
         //se llama a ventana de login
         login ventana = new login();
@@ -99,6 +111,9 @@ public class ControladorMain implements ActionListener{
         ventana.setLocationRelativeTo(null);
     }
     
+    /**
+     * Funcion que inicia la ventana de registro de sedes
+     */
     public void iniciarVentanaRegistroSedes(){
         RegistroSede ventana = new RegistroSede();
         ControladorAddSede c = new ControladorAddSede(ventana,vistaMenu);
