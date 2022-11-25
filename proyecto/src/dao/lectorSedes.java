@@ -6,7 +6,7 @@ package dao;
 
 /**
  *
- * @author Maverick Madrigal
+ * @author Maverick Madrigal, Andrey Salamanca, Estefani Valverde
  */
 
 import java.io.File;
@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import modelo.Direccion;
 import modelo.Sede;
 
+
 public class lectorSedes{
 
     private final String EXTENSION_A_BUSCAR = ".txt";
@@ -25,11 +26,18 @@ public class lectorSedes{
     private boolean encendido = true;
     public ArrayList<Sede> sedes;
     
+    /**
+     * Funcion que lee las sedes
+     */
     public lectorSedes() {
         directorioCarpetaAExaminar = "sedes";
         sedes = new ArrayList<Sede>();
     }
-
+    /**
+     * 
+     * @return
+     * @throws IOException 
+     */
     public boolean run() throws IOException {
         File dir = new File(directorioCarpetaAExaminar);
         File[] files = dir.listFiles(new FilenameFilter() {
@@ -52,7 +60,10 @@ public class lectorSedes{
         System.out.println("--");
         return true;
     }
-
+    /**
+     * 
+     * @param dir 
+     */
     public void setDirectorioABuscar(String dir) {
         this.directorioCarpetaAExaminar = dir;
     }
