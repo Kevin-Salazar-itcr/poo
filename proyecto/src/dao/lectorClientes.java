@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
 /**
  *
- * @author Maverick Madrigal
+ * @author Andrey Salamanca Campos, Maverick Magrigal Bryan, Estefani Valverde Marín
+ * @version (24/11/2022)
  */
 
 import java.io.File;
@@ -51,7 +49,11 @@ public class lectorClientes{
         System.out.println("--");
         return true;
     }
-
+    
+    /**
+     * 
+     * @param dir Direccion a Buscar
+     */
     public void setDirectorioABuscar(String dir) {
         this.directorioCarpetaAExaminar = dir;
     }

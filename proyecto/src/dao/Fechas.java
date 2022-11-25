@@ -10,8 +10,8 @@ import java.util.logging.Logger;
 /**
  * Clase de utilidades para gestionar fechas
  *
- * @author Andrey Salamanca
- * @version 1.0
+ * @author Andrey Salamanca Campos, Maverick Magrigal Bryan, Estefani Valverde Marín
+ * @version (24/11/2022)
  */
 public class Fechas {
 
@@ -97,7 +97,11 @@ public class Fechas {
       return cal;
     }
   }
-
+  /**
+   * 
+   * @param fecha
+   * @return El formato de la fecha
+   */
   public static Calendar toCalendar(String fecha) {
     int dia = Integer.parseInt(fecha.substring(0, 2));
     int mes = Integer.parseInt(fecha.substring(3, 5));
