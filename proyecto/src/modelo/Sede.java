@@ -5,9 +5,7 @@ import java.util.ArrayList;
 /**
  * Enumerador de sedes de un rentACar
  *
- * @author Milton Barrera
- * @author Jeremy Beckford
- * @author Jonathan Porras
+ * @author Maverick Madrigal Bryan, Andrey Salamanca, Estefani Valverde
  * @version 1
  */
 public class Sede {
@@ -16,17 +14,29 @@ public class Sede {
     private Direccion direccion;
     private ArrayList<Vehiculo> vehiculos;
     
+    /**
+     * 
+     */
     public Sede(){
         
     }
-
-    public Sede(String nombre, String cedulaJuridica, Direccion direccion) {
+    /**
+     * 
+     * @param nombre
+     * @param cedulaJuridica
+     * @param direccion 
+     */
+    public Sede(String cedulaJuridica, String nombre, Direccion direccion) {
         this.nombre = nombre;
         this.cedulaJuridica = cedulaJuridica;
         this.direccion = direccion;
         this.vehiculos = new ArrayList<Vehiculo>();
     }
 
+    /**
+     * Metodos accesores 
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }

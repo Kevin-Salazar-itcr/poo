@@ -160,6 +160,7 @@ public class ControladorAddVehiculo implements ActionListener{
         String sede = vista.sede.getSelectedItem().toString();
         String alquiler = vista.precio.getText();
         String maletas = vista.maletas.getSelectedItem().toString();
+        String modelo = vista.modelo.getText();
         
         //validar que los datos sean correctos
         
@@ -171,8 +172,25 @@ public class ControladorAddVehiculo implements ActionListener{
         try {
             String ruta = "vehiculos/"+placa+".txt";
             String contenido = "";
-            contenido = placa+"\n"+fabricacion+"\n"+estilo+"\n"+motor+"\n"+color+"\n"+marca+"\n"+capacidad+"\n"+kilometraje+"\n"+numeroPuertas+"\n"+
-                    vin+"\n"+millas+"\n"+sede+"\n"+alquiler+"\n"+maletas+"\n"+String.valueOf(transm)+"\nACTIVO\n"+marca+".png"+"\n"+"1";
+            contenido = placa+"\n"+
+                    fabricacion+"\n"+
+                    estilo+"\n"+
+                    motor+"\n"+
+                    color+"\n"+
+                    marca+"\n"+
+                    capacidad+"\n"+
+                    kilometraje+"\n"+
+                    numeroPuertas+"\n"+
+                    vin+"\n"+
+                    millas+"\n"+
+                    sede+"\n"+
+                    alquiler+"\n"+
+                    maletas+"\n"+
+                    String.valueOf(transm)+
+                    "\nACTIVO\n"+
+                    marca+".png"+
+                    "\n1\n"
+                    +modelo;
             
             
             File file = new File(ruta);

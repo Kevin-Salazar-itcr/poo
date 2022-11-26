@@ -12,6 +12,8 @@ import dao.lectorSedes;
 import dao.lectorVehiculos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -24,6 +26,7 @@ import modelo.EstiloVehiculo;
 import modelo.Motor;
 import modelo.Sede;
 import modelo.Vehiculo;
+import vista.Extras;
 
 /**
  * Controlador de reserva
@@ -36,7 +39,7 @@ public class ControladorAddReserva implements ActionListener{
     public com.raven.datechooser.DateChooser dateChooser1;
     public com.raven.datechooser.DateChooser dateChooser2;
     ArrayList<Vehiculo> vehiculos;
-    
+    public Extras extra;
     /**
      * 
      * @param ventana Vista actual
@@ -79,19 +82,27 @@ public class ControladorAddReserva implements ActionListener{
         
         generarComboBoxes();
         
-        vista.filtros.addActionListener(new ActionListener(){
+        
+        vista.filtros.addItemListener(new ItemListener(){
             @Override
-            public void actionPerformed(ActionEvent e) {
-                for(Vehiculo v:vehiculos){
-                    vista.costo.setText(String.valueOf(v.getCostoPorDia()));
-                    vista.estilo.setText(String.valueOf(v.getEstiloVehiculo()));
-                    vista.transmision.setText(String.valueOf(v.getTransmision()));
-                    vista.imgCarro.setIcon(new ImageIcon("logos/"+v.getFotoVehiculo()));
-                    System.out.println(v.getFotoVehiculo());
-                    vista.modelo.setText(String.valueOf(v.getModelo()));
-                        
+            public void itemStateChanged(ItemEvent e) {
+                try{
+                    for(Vehiculo v:vehiculos){
+                        if(v.getPlaca().equals(vista.filtros.getSelectedItem().toString())){
+                            vista.costo.setText(String.valueOf(v.getCostoPorDia()));
+                            vista.estilo.setText(String.valueOf(v.getEstiloVehiculo()));
+                            vista.transmision.setText(String.valueOf(v.getTransmision()));
+                            vista.imgCarro.setIcon(new ImageIcon("logos/"+v.getFotoVehiculo()));
+                            
+                            vista.modelo.setText(String.valueOf(v.getModelo()));
+                            break;
+                        }
+                    }
+                }catch(Exception exc){
+                    
                 }
             }
+            
         });
     }
 
@@ -113,8 +124,8 @@ public class ControladorAddReserva implements ActionListener{
         }
         
         for(Sede s:lector.sedes){
-            vista.lugarRecogida.addItem(s.getNombre());
-            vista.lugarDevolucion.addItem(s.getNombre());
+            vista.lugarRecogida.addItem(s.getCedulaJuridica());
+            vista.lugarDevolucion.addItem(s.getCedulaJuridica());
             
         }
         
@@ -151,6 +162,7 @@ public class ControladorAddReserva implements ActionListener{
             }
                 break;
             }case "Reservar":{
+                reservar();
                 JOptionPane.showMessageDialog(null,"Reserva agregada exitosamente");
                 vista.setVisible(false);
                 menu.setVisible(true);
@@ -179,21 +191,22 @@ public class ControladorAddReserva implements ActionListener{
         }else{
             JOptionPane.showMessageDialog(null, "No hay vehiculos registrados");
         }
-        
+        vista.filtros.removeAllItems();
+        vista.costo.setText("Costo");
+        vista.estilo.setText("estilo");
+        vista.transmision.setText("transmision");
+        vista.imgCarro.setIcon(null);
+        vista.modelo.setText("modelo");
         for(Vehiculo v: l.vehiculos){
-            System.out.println(v.getMarca());
             
-            System.out.println(v.getCapacidad() >= capacidad);
-            
-            System.out.println(String.valueOf(v.getEstiloVehiculo()).equals(estilo));
-            
-            System.out.println(v.getCostoPorDia() <= max && v.getCostoPorDia() >= min);
             
             if(v.getCapacidad() >= capacidad &&
             String.valueOf(v.getEstiloVehiculo()).equals(estilo) &&
-            v.getCostoPorDia() <= max && v.getCostoPorDia() >= min){
-                System.out.println("hola");
+            v.getCostoPorDia() <= max && v.getCostoPorDia() >= min &&
+            v.getSedePertenencia().getCedulaJuridica().equals(vista.lugarRecogida.getSelectedItem().toString())){
+                
                 vista.filtros.addItem(String.valueOf(v.getPlaca()));
+                
             }
             
         }
@@ -201,4 +214,9 @@ public class ControladorAddReserva implements ActionListener{
         this.vehiculos = l.vehiculos;
     }
     
+    
+    public void reservar(){
+        this.extra = new Extras();
+        ControladorExtras extras1 = new ControladorExtras(extra);
+    }
 }

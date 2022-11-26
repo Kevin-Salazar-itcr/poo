@@ -6,7 +6,7 @@ package modelo;
 
 /**
  *
- * @author Andrey Salamanca
+ * @author Andrey Salamanca, Maverick Madrigal Bryan
  */
 public enum Motor {
     GASOLINA, DIESEL, ELECTRICO, HIBRIDO

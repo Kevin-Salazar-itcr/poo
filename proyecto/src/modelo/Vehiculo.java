@@ -3,7 +3,10 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
+/**
+ * 
+ * @author Andrey Salamanca, Maverick Madrigal, Estefani Valverde
+ */
 public class Vehiculo {
   private String placa;
   private int anio;
@@ -26,7 +29,26 @@ public class Vehiculo {
   private boolean estaDisponible;
   private String modelo;
 
-
+  /**
+   * 
+   * @param pPlaca
+   * @param pAnio
+   * @param pEstiloVehiculo
+   * @param pMotor
+   * @param pColor
+   * @param pMarca
+   * @param pCapacidad
+   * @param pKilometraje
+   * @param pNumeroPuertas
+   * @param pVin
+   * @param pMpg
+   * @param pCostoPorDia
+   * @param pCapacidadMaletero
+   * @param pTransmision
+   * @param pEstadovehiculo
+   * @param pFotoVehiculo
+   * @param pSede 
+   */
   public Vehiculo(String pPlaca, int pAnio, EstiloVehiculo pEstiloVehiculo, Motor pMotor, String pColor,
           String pMarca, int pCapacidad, int pKilometraje, int pNumeroPuertas, String pVin,
           double pMpg, double pCostoPorDia, int pCapacidadMaletero, Transmision pTransmision ,
@@ -81,7 +103,10 @@ public class Vehiculo {
     modelo = pModelo;
   }
   
-  
+  /**
+   * Metodos Accesores
+   * @return 
+   */
   public Motor getMotor(){
       return motor;
   }
@@ -223,7 +248,16 @@ public class Vehiculo {
   public void setSedePertenencia(Sede pSedePertenencia) {
     sedePertenencia = pSedePertenencia;
   }
-
+  
+  /**
+   * 
+   * @param tipoMantenimiento
+   * @param fechaInicio
+   * @param fechaFinalizacion
+   * @param montoPagado
+   * @param detalle
+   * @param empresa 
+   */
   public void agregarMantenimiento(TipoMantenimiento tipoMantenimiento, Calendar fechaInicio, 
           Calendar fechaFinalizacion,double montoPagado, String detalle, Empresa empresa) {
       

@@ -61,6 +61,18 @@ public class lectorVehiculos{
                 t = Transmision.AUTOMATICO;
             }
             
+            lectorSedes l = new lectorSedes();
+            l.run();
+            String sede = losVehiculos.get(11);
+            Sede laSede=null;
+            for(Sede s: l.sedes){
+                System.out.println(s.getCedulaJuridica());
+                System.out.println(sede);
+                if(s.getCedulaJuridica().equals(sede)){
+                    laSede = s;
+                    break;
+                }
+            }
             
             vehiculos.add(new Vehiculo(losVehiculos.get(0),
                                        Integer.parseInt(losVehiculos.get(1)),
@@ -78,7 +90,7 @@ public class lectorVehiculos{
                                        t,
                                        EstadoVehiculo.valueOf(losVehiculos.get(15)),
                                        losVehiculos.get(16),
-                                       null,
+                                       laSede,
                                        losVehiculos.get(18)
             ));
             

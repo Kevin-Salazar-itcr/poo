@@ -3,9 +3,7 @@ package modelo;
 /**
  * Enumerador de tipos de mantenimientos de un carro.
  *
- * @author Milton Barrera
- * @author Jeremy Beckford
- * @author Jonathan Porras
+ * @author Maverick Madrigal Bryan, Estefani Valverde, Andrey Salamanca
  * @version 1
  */
 public enum TipoMantenimiento {

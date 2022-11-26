@@ -14,7 +14,8 @@ import modelo.*;
  */
 public class ControladorAddSede implements ActionListener{
     public Menu vistaMenu;
-    RegistroSede vista;
+    public RegistroSede vista;
+   
     
     /**
      * 
