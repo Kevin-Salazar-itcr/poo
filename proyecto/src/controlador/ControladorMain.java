@@ -36,7 +36,7 @@ public class ControladorMain implements ActionListener{
      */
     public void actionPerformed(ActionEvent e){
         switch(e.getActionCommand()){
-            case "Registrar cliente por medio de correo electrónico":
+            case "Registrar Cliente":
                 break;
             case "Agregar Vehiculo":
                 iniciarVentanaAgregarVehiculo();
@@ -44,13 +44,13 @@ public class ControladorMain implements ActionListener{
             case "Realizar Reserva":
                 iniciarVentanaReserva();
                 break;
-            case "Consultar detalle de una reserva":
-                // iniciarVentanaConsultaReserva
+            case "Consultar Reserva":
+                iniciarVentanaConsultaReserva();
                 break;
             case "Registrar Sede":
                 iniciarVentanaRegistroSedes();
                 break;
-            case "Recuperar datos para analisis de sentimientos":
+            case "Analisis de sentimientos":
                 // iniciarVentanaRecuperarDatos
                 break;
             case "Reportes":
@@ -72,19 +72,25 @@ public class ControladorMain implements ActionListener{
         
         AddVehiculo ventana = new AddVehiculo();
         ControladorAddVehiculo c = new ControladorAddVehiculo(vistaMenu, ventana);
-        File dir = new File("sedes");
-        File[] files = dir.listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.toLowerCase().endsWith(".txt");
-            }
-        });
+        try{
+            File dir = new File("sedes");
         
-        if(files.length == 0){
-            return;
+            File[] files = dir.listFiles(new FilenameFilter() {
+                public boolean accept(File dir, String name) {
+                    return name.toLowerCase().endsWith(".txt");
+                }
+            });
+
+            if(files.length == 0){
+                return;
+            }
+        
+            vistaMenu.setVisible(false);
+            ventana.setVisible(true);
+            ventana.setLocationRelativeTo(null);
+        }catch(Exception exc){
+            
         }
-        vistaMenu.setVisible(false);
-        ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);
     }
     
     /**
@@ -121,5 +127,11 @@ public class ControladorMain implements ActionListener{
         vistaMenu.setVisible(false);
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
+    }
+
+    private void iniciarVentanaConsultaReserva() {
+        ConsultaReserva ventana = new ConsultaReserva();
+        ControladorConsultas c = new ControladorConsultas(ventana,vistaMenu);
+
     }
 }

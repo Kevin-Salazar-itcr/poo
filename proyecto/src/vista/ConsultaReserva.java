@@ -26,21 +26,366 @@ public class ConsultaReserva extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        reservas = new javax.swing.JComboBox<>();
+        imgCarro = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        modelo = new javax.swing.JLabel();
+        estilo = new javax.swing.JLabel();
+        transmision = new javax.swing.JLabel();
+        costo = new javax.swing.JLabel();
+        Volver = new javax.swing.JButton();
+        fecha2 = new javax.swing.JLabel();
+        sede2 = new javax.swing.JLabel();
+        sede3 = new javax.swing.JLabel();
+        sede4 = new javax.swing.JLabel();
+        fecha1 = new javax.swing.JLabel();
+        sede6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        consecutivo = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        ninio = new javax.swing.JLabel();
+        wifi = new javax.swing.JLabel();
+        asist = new javax.swing.JLabel();
+        gps = new javax.swing.JLabel();
+        danio = new javax.swing.JLabel();
+        total = new javax.swing.JLabel();
+        cliente = new javax.swing.JLabel();
+        danio2 = new javax.swing.JLabel();
+        danio3 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        fechaReserva = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel10.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Elegir reserva");
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Sede de recogida");
+
+        reservas.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        reservas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                reservasItemStateChanged(evt);
+            }
+        });
+
+        imgCarro.setText("foto");
+        imgCarro.setPreferredSize(new java.awt.Dimension(120, 120));
+
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Sede de devolución");
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("CONSULTA DE RESERVAS");
+
+        jLabel8.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Datos del vehículo");
+
+        modelo.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        modelo.setForeground(new java.awt.Color(0, 0, 0));
+        modelo.setText("modelo");
+
+        estilo.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        estilo.setForeground(new java.awt.Color(0, 0, 204));
+        estilo.setText("estilo");
+
+        transmision.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        transmision.setForeground(new java.awt.Color(0, 0, 0));
+        transmision.setText("transmision");
+
+        costo.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        costo.setForeground(new java.awt.Color(0, 204, 0));
+        costo.setText("Costo");
+
+        Volver.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        Volver.setText("Volver al menú");
+
+        fecha2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        fecha2.setForeground(new java.awt.Color(0, 0, 0));
+        fecha2.setText("Fecha de devolución");
+
+        sede2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        sede2.setForeground(new java.awt.Color(0, 0, 0));
+        sede2.setText("Sede de devolución");
+
+        sede3.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        sede3.setForeground(new java.awt.Color(0, 0, 0));
+        sede3.setText("Sede de recogida");
+
+        sede4.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        sede4.setForeground(new java.awt.Color(0, 0, 0));
+        sede4.setText("Fecha de recogida");
+
+        fecha1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        fecha1.setForeground(new java.awt.Color(0, 0, 0));
+        fecha1.setText("Fecha de recogida");
+
+        sede6.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        sede6.setForeground(new java.awt.Color(0, 0, 0));
+        sede6.setText("Fecha de devolución");
+
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Consecutivo N°");
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Detalles de la factura");
+
+        consecutivo.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        consecutivo.setForeground(new java.awt.Color(0, 0, 0));
+        consecutivo.setText("Detalles de la factura");
+
+        jLabel14.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 204, 0));
+        jLabel14.setText("Solicitado");
+
+        jLabel15.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Servicios adicionales solicitados");
+
+        jLabel16.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel16.setText("No solicitado");
+
+        ninio.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        ninio.setForeground(new java.awt.Color(255, 0, 0));
+        ninio.setText("Asiento para niño ($ 6.99 diarios)");
+
+        wifi.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        wifi.setForeground(new java.awt.Color(255, 0, 0));
+        wifi.setText("WiFi ilimitado ($15 diarios)");
+
+        asist.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        asist.setForeground(new java.awt.Color(255, 0, 0));
+        asist.setText("Asistencia en carretera ($3.99 diarios)");
+
+        gps.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        gps.setForeground(new java.awt.Color(255, 0, 0));
+        gps.setText("GPS($13.99 diarios)");
+
+        danio.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        danio.setForeground(new java.awt.Color(255, 0, 0));
+        danio.setText("Cobertura por daños ($ 12.99 diarios)");
+
+        total.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        total.setForeground(new java.awt.Color(0, 0, 0));
+        total.setText("Total (con I.V.A)");
+
+        cliente.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        cliente.setForeground(new java.awt.Color(0, 0, 0));
+        cliente.setText("cliente");
+
+        danio2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        danio2.setForeground(new java.awt.Color(0, 0, 0));
+        danio2.setText("Cliente");
+
+        danio3.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        danio3.setForeground(new java.awt.Color(0, 0, 0));
+        danio3.setText("Total (con I.V.A) $");
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("fecha de la reserva");
+
+        fechaReserva.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        fechaReserva.setForeground(new java.awt.Color(0, 0, 0));
+        fechaReserva.setText("fecha de la reserva");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(sede4))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(sede6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fecha1)
+                            .addComponent(sede3)
+                            .addComponent(sede2)
+                            .addComponent(fecha2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jLabel8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(costo)
+                            .addComponent(transmision)
+                            .addComponent(estilo)
+                            .addComponent(modelo))
+                        .addGap(105, 105, 105)
+                        .addComponent(imgCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ninio)
+                                    .addComponent(wifi)
+                                    .addComponent(asist)
+                                    .addComponent(gps)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(danio2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cliente))
+                                    .addComponent(danio)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(danio3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(total)
+                                        .addGap(28, 28, 28))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(121, 121, 121)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(fechaReserva))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(consecutivo)))))
+                        .addContainerGap(92, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel16))
+                                    .addComponent(jLabel15))
+                                .addGap(98, 98, 98))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(172, 172, 172))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(307, 307, 307))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(reservas, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Volver)
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(sede3))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(sede2))
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sede4)
+                            .addComponent(fecha1))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sede6)
+                            .addComponent(fecha2))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imgCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(estilo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(modelo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(transmision)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(costo)))
+                        .addGap(73, 73, 73))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(fechaReserva))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(consecutivo))
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel16))
+                        .addGap(18, 18, 18)
+                        .addComponent(wifi)
+                        .addGap(18, 18, 18)
+                        .addComponent(asist)
+                        .addGap(18, 18, 18)
+                        .addComponent(gps)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ninio)
+                        .addGap(18, 18, 18)
+                        .addComponent(danio)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cliente)
+                            .addComponent(danio2))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(total)
+                            .addComponent(danio3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(reservas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Volver))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void reservasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_reservasItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reservasItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -78,5 +423,40 @@ public class ConsultaReserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton Volver;
+    public javax.swing.JLabel asist;
+    public javax.swing.JLabel cliente;
+    public javax.swing.JLabel consecutivo;
+    public javax.swing.JLabel costo;
+    public javax.swing.JLabel danio;
+    public javax.swing.JLabel danio2;
+    public javax.swing.JLabel danio3;
+    public javax.swing.JLabel estilo;
+    public javax.swing.JLabel fecha1;
+    public javax.swing.JLabel fecha2;
+    public javax.swing.JLabel fechaReserva;
+    public javax.swing.JLabel gps;
+    public javax.swing.JButton imgCarro;
+    public javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel14;
+    public javax.swing.JLabel jLabel15;
+    public javax.swing.JLabel jLabel16;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel modelo;
+    public javax.swing.JLabel ninio;
+    public javax.swing.JComboBox<String> reservas;
+    public javax.swing.JLabel sede2;
+    public javax.swing.JLabel sede3;
+    public javax.swing.JLabel sede4;
+    public javax.swing.JLabel sede6;
+    public javax.swing.JLabel total;
+    public javax.swing.JLabel transmision;
+    public javax.swing.JLabel wifi;
     // End of variables declaration//GEN-END:variables
 }

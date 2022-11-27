@@ -106,7 +106,7 @@ public class AddVehiculo extends javax.swing.JFrame {
         placa.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel8.setText("Capacidad");
+        jLabel8.setText("Pasajeros");
 
         capac.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
 
@@ -234,9 +234,9 @@ public class AddVehiculo extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel10))
-                                .addGap(27, 27, 27))
-                            .addComponent(jLabel17))
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel17))
+                                .addGap(27, 27, 27)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(modelo)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

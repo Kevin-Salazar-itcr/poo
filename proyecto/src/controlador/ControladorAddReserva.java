@@ -27,6 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modelo.EstadoVehiculo;
 import modelo.EstiloVehiculo;
 import modelo.Motor;
 import modelo.Sede;
@@ -185,7 +186,9 @@ public class ControladorAddReserva implements ActionListener{
         }
         
         for(Vehiculo v:lv.vehiculos){
-            vista.filtros.addItem(v.getPlaca());
+            if(!(v.getEstadovehiculo() == EstadoVehiculo.INACTIVO)){
+                vista.filtros.addItem(v.getPlaca());
+            }
             
         }this.vehiculos = lv.vehiculos;
         
@@ -258,7 +261,8 @@ public class ControladorAddReserva implements ActionListener{
             if(v.getCapacidad() >= capacidad &&
             String.valueOf(v.getEstiloVehiculo()).equals(estilo) &&
             v.getCostoPorDia() <= max && v.getCostoPorDia() >= min &&
-            v.getSedePertenencia().getCedulaJuridica().equals(vista.lugarRecogida.getSelectedItem().toString())){
+            v.getSedePertenencia().getCedulaJuridica().equals(vista.lugarRecogida.getSelectedItem().toString()) &&
+            v.getEstadovehiculo()!=EstadoVehiculo.INACTIVO){
             vista.filtros.addItem(String.valueOf(v.getPlaca()));
             }
         }
@@ -269,6 +273,7 @@ public class ControladorAddReserva implements ActionListener{
     public ArrayList<String> extraerData(){
         ArrayList<String> data = new ArrayList<String>();
         //extraccion de los datos de la interfaz
+        data.add(seleccionado.getPlaca());
         data.add(vista.lugarRecogida.getSelectedItem().toString());
         if(vista.mismoLugar.isSelected()){
             data.add(vista.lugarRecogida.getSelectedItem().toString());
@@ -281,8 +286,6 @@ public class ControladorAddReserva implements ActionListener{
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String strDate = dateFormat.format(date);
         data.add(strDate);
-        data.add(String.valueOf(cliente));
-       
         return data;
     }    
     
@@ -303,8 +306,8 @@ public class ControladorAddReserva implements ActionListener{
     public void reservar(){
         ArrayList<String> data = extraerData();
         extra = new Extras();
-        long diferencia = diferenciaDias(data.get(2), data.get(3));
-        ControladorExtras extras1 = new ControladorExtras(extra, menu, data, this.seleccionado, diferencia);
+        long diferencia = diferenciaDias(data.get(3), data.get(4));
+        ControladorExtras extras1 = new ControladorExtras(extra, menu, data, this.seleccionado, diferencia,this.cliente);
         extra.setVisible(true);
         extra.setLocationRelativeTo(null);
         vista.setVisible(false);

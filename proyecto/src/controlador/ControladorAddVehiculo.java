@@ -77,12 +77,12 @@ public class ControladorAddVehiculo implements ActionListener{
                 vistaMenu.setVisible(true);
             }
                  
-        } catch (IOException ex) {
-            Logger.getLogger(ControladorAddVehiculo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "No hay sedes registradas");
         }
         
         for(Sede s:lector.sedes){
-            vista.sede.addItem(s.getNombre());
+            vista.sede.addItem(s.getCedulaJuridica());
         }
         
         try {
@@ -91,8 +91,7 @@ public class ControladorAddVehiculo implements ActionListener{
                 vista.marcas.addItem(elemento);
             }
         }
-        catch (IOException e) {
-            System.err.println(e);
+        catch (Exception e) {
         }
         
         vista.estilo.addItem(String.valueOf(EstiloVehiculo.COMPACTO));
@@ -131,6 +130,7 @@ public class ControladorAddVehiculo implements ActionListener{
                     
                 }
                 else{
+                    vista.dispose();
                     vistaMenu.setVisible(true);               
                     vistaMenu.setLocationRelativeTo(null);
                 }
@@ -227,7 +227,6 @@ public class ControladorAddVehiculo implements ActionListener{
             }
             
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }

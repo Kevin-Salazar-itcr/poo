@@ -1,23 +1,25 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
  * @author 
  */
 public class Reserva {
+  private int placaReserva;
   private String sedeRecogida;
   private String sedeEntrega;
-  private Date fechaRecogida;
-  private Date fechaEntrega;
-  private Date fechaReserva;
+  private String fechaRecogida;
+  private String fechaEntrega;
+  private String fechaReserva;
   private ArrayList<String> extras;
   private double precio;
-  private String cedulaCliente;
+  private int cedulaCliente;
+  private int consecutivo;
 
-  public Reserva(String sedeRecogida, String sedeEntrega, Date fechaRecogida, Date fechaEntrega, Date fechaReserva, ArrayList<String> extras, double precio, String cedulaCliente) {
+  public Reserva(int placa, String sedeRecogida, String sedeEntrega, String fechaRecogida, String fechaEntrega, String fechaReserva, ArrayList<String> extras, double precio, int cedulaCliente, int consecutivo) {
+    this.placaReserva = placa;
     this.sedeRecogida = sedeRecogida;
     this.sedeEntrega = sedeEntrega;
     this.fechaRecogida = fechaRecogida;
@@ -26,8 +28,15 @@ public class Reserva {
     this.extras = extras;
     this.precio = precio;
     this.cedulaCliente = cedulaCliente;
+    this.consecutivo = consecutivo;
   }
-
+    
+    public int getConsecutivo(){
+        return consecutivo;
+    }
+    public int getPlacaReserva(){
+        return placaReserva;
+    }
     public String getSedeRecogida() {
         return sedeRecogida;
     }
@@ -36,15 +45,15 @@ public class Reserva {
         return sedeEntrega;
     }
 
-    public Date getFechaRecogida() {
+    public String getFechaRecogida() {
         return fechaRecogida;
     }
 
-    public Date getFechaEntrega() {
+    public String getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public Date getFechaReserva() {
+    public String getFechaReserva() {
         return fechaReserva;
     }
 
@@ -56,7 +65,7 @@ public class Reserva {
         return precio;
     }
 
-    public String getCedulaCliente() {
+    public int getCedulaCliente() {
         return cedulaCliente;
     }
 }

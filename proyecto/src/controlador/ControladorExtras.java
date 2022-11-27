@@ -11,8 +11,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -35,8 +37,9 @@ public class ControladorExtras implements ActionListener {
     public ArrayList<String> data;
     public Vehiculo elegido;
     public long diff;
+    public int cliente;
     
-    public ControladorExtras(Extras e, Menu m, ArrayList<String> data, Vehiculo elegido, long diff){
+    public ControladorExtras(Extras e, Menu m, ArrayList<String> data, Vehiculo elegido, long diff, int cliente){
         this.e = e;
         this.m = m;
         e.aceptar.addActionListener(this);
@@ -44,6 +47,7 @@ public class ControladorExtras implements ActionListener {
         this.data = data;
         this.elegido = elegido;
         this.diff = diff;
+        this.cliente = cliente;
     }
     
     @Override
@@ -94,6 +98,20 @@ public class ControladorExtras implements ActionListener {
         precio += precio*0.13; //IVA del 13%
         
         data.add(String.valueOf(precio));
+        data.add(String.valueOf(cliente));
+        int consecutivo = 0;
+        try{
+            File dir = new File("reservas");
+            File[] files = dir.listFiles(new FilenameFilter() {
+                public boolean accept(File dir, String name) {
+                    return name.toLowerCase().endsWith(".txt");
+                }
+            });
+            consecutivo = files.length;
+        }catch(Exception exc){
+            
+        }
+        data.add(String.valueOf(consecutivo+1));
         
         try {
             String ruta = "reservas/reserva_"+elegido.getPlaca()+".txt";

@@ -132,7 +132,7 @@ public class ControladorLogin implements ActionListener{
         }catch (NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Error en la entrada");
         }catch (Exception ex){
-            JOptionPane.showMessageDialog(null, "Error inesperado");
+            JOptionPane.showMessageDialog(null, "No hay clientes registrados o surgió un error inesperado");
             return;
         }
     }
