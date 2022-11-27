@@ -102,7 +102,7 @@ public class ControladorLogin implements ActionListener{
                 if(logger != 0){
                     
                     RealizarReserva ventana = new RealizarReserva();
-                    ControladorAddReserva c = new ControladorAddReserva(ventana,vistaMenu);
+                    ControladorAddReserva c = new ControladorAddReserva(ventana,vistaMenu, logger);
                     File dir = new File("sedes");
                     File[] files = dir.listFiles(new FilenameFilter() {
                         public boolean accept(File dir, String name) {

@@ -127,11 +127,13 @@ public class ControladorAddVehiculo implements ActionListener{
                 break;
             }
             case "Guardar":{
-                guardar();
-                JOptionPane.showMessageDialog(null,"Vehiculo agregado exitosamente");
-                vista.setVisible(false);
-                vistaMenu.setVisible(true);
-                vistaMenu.setLocationRelativeTo(null);
+                if(!guardar()){
+                    
+                }
+                else{
+                    vistaMenu.setVisible(true);               
+                    vistaMenu.setLocationRelativeTo(null);
+                }
                 break;
             }case "Volver al menú":{
                 vista.dispose();
@@ -143,7 +145,7 @@ public class ControladorAddVehiculo implements ActionListener{
         } 
     }
     
-    public void guardar(){
+    public boolean guardar(){
         
         String vin = vista.VIN.getText();
         boolean auto = vista.auto.isSelected();
@@ -203,14 +205,15 @@ public class ControladorAddVehiculo implements ActionListener{
                 bw.close();
                 JOptionPane.showMessageDialog(null, "Vehículo agregado exitosamente");
                 
-                vista.dispose();
-                vistaMenu.setVisible(true);
+                return true;
             }else{
                 JOptionPane.showMessageDialog(null, "El vehículo ya existe");
+                return false;
             }
             
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 }

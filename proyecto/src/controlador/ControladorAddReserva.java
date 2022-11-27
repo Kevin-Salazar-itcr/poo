@@ -17,9 +17,11 @@ import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,12 +46,13 @@ public class ControladorAddReserva implements ActionListener{
     public ArrayList<Vehiculo> vehiculos;
     public Extras extra;
     public Vehiculo seleccionado;
+    public int cliente;
     /**
      * 
      * @param ventana Vista actual
      * @param vistaMenu Vista anterior
      */
-    public ControladorAddReserva(RealizarReserva ventana, Menu vistaMenu) {
+    public ControladorAddReserva(RealizarReserva ventana, Menu vistaMenu, int cliente) {
         vista = ventana;
         menu = vistaMenu;
         dateChooser1=new com.raven.datechooser.DateChooser();
@@ -57,6 +60,7 @@ public class ControladorAddReserva implements ActionListener{
         dateChooser2=new com.raven.datechooser.DateChooser();
         dateChooser2.setTextRefernce(vista.fecha2);
         vehiculos = new ArrayList<Vehiculo>();
+        this.cliente = cliente;
         
         vista.Filtrar.addActionListener(this);
         vista.Reservar.addActionListener(this);
@@ -208,7 +212,8 @@ public class ControladorAddReserva implements ActionListener{
                 }
                 break;
             }case "Reservar":{
-                if(diferenciaDias(vista.fecha1.getText(),vista.fecha2.getText())<0 || seleccionado == null){
+                if(diferenciaDias(vista.fecha1.getText(),vista.fecha2.getText())<0 || seleccionado == null
+                        || vista.fecha1.getText().equals(vista.fecha2.getText())){
                     JOptionPane.showMessageDialog(null, "Corrobore que los datos sean correctos");
                 }else{
                     reservar();
@@ -265,8 +270,20 @@ public class ControladorAddReserva implements ActionListener{
     public ArrayList<String> extraerData(){
         ArrayList<String> data = new ArrayList<String>();
         //extraccion de los datos de la interfaz
-        
-        
+        data.add(vista.lugarRecogida.getSelectedItem().toString());
+        if(vista.mismoLugar.isSelected()){
+            data.add(vista.lugarRecogida.getSelectedItem().toString());
+        }else{
+            data.add(vista.lugarDevolucion.getSelectedItem().toString());
+        }
+        data.add(vista.fecha1.getText());
+        data.add(vista.fecha2.getText());
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String strDate = dateFormat.format(date);
+        data.add(strDate);
+        data.add(String.valueOf(cliente));
+       
         return data;
     }    
     
@@ -287,7 +304,8 @@ public class ControladorAddReserva implements ActionListener{
     public void reservar(){
         ArrayList<String> data = extraerData();
         extra = new Extras();
-        ControladorExtras extras1 = new ControladorExtras(extra, menu);
+        long diferencia = diferenciaDias(data.get(2), data.get(3));
+        ControladorExtras extras1 = new ControladorExtras(extra, menu, data, this.seleccionado, diferencia);
         extra.setVisible(true);
         extra.setLocationRelativeTo(null);
         vista.setVisible(false);
