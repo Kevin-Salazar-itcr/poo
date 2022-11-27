@@ -157,7 +157,7 @@ public class ControladorAddReserva implements ActionListener{
         vista.tipo.addItem(String.valueOf(EstiloVehiculo.COMPACTO));
         vista.tipo.addItem(String.valueOf(EstiloVehiculo.CONVERTIBLE));
         vista.tipo.addItem(String.valueOf(EstiloVehiculo.INTERMEDIO));
-        vista.tipo.addItem(String.valueOf(EstiloVehiculo.MINI_VANoN));
+        vista.tipo.addItem(String.valueOf(EstiloVehiculo.MINI_VAN));
         vista.tipo.addItem(String.valueOf(EstiloVehiculo.PICKUP));
         vista.tipo.addItem(String.valueOf(EstiloVehiculo.SUV));
         
