@@ -5,7 +5,11 @@
 package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import vista.Extras;
+import vista.Menu;
 
 
 /**
@@ -15,15 +19,37 @@ import vista.Extras;
  */
 public class ControladorExtras implements ActionListener {
     Extras e;
-    public ControladorExtras(Extras e){
+    Menu m;
+    public ControladorExtras(Extras e, Menu m){
         this.e = e;
+        this.m = m;
         e.aceptar.addActionListener(this);
         e.cancelar.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        switch(e.getActionCommand()){
+            case "Aceptar":{
+                procesadoDatos();
+                break;
+            }
+            case "Cancelar":{
+                this.e.dispose();
+                this.m.setVisible(true);
+                this.m.setLocationRelativeTo(null);
+                break;
+            }
+            default:{
+                break;
+            }
+        }
     }
-    
+    public void procesadoDatos(){
+        //guardado del nuevo txt
+        JOptionPane.showMessageDialog(null,"Reserva agregada exitosamente");
+        e.setVisible(false);
+        m.setVisible(true);
+        m.setLocationRelativeTo(null);
+    }
 }

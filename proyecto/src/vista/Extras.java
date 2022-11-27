@@ -28,8 +28,6 @@ public class Extras extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        precio = new javax.swing.JLabel();
         wifi = new javax.swing.JCheckBox();
         asist = new javax.swing.JCheckBox();
         gps = new javax.swing.JCheckBox();
@@ -46,17 +44,21 @@ public class Extras extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel2.setText("Puede escoger varios");
 
-        jLabel8.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel8.setText("Total actual $");
-
-        precio.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        precio.setText("precio");
-
         wifi.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         wifi.setText("Wifi ilimitado ($15 /dia)");
+        wifi.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                wifiStateChanged(evt);
+            }
+        });
 
         asist.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         asist.setText("Asistencia en carretera ($3,99 /dia)");
+        asist.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                asistStateChanged(evt);
+            }
+        });
         asist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 asistActionPerformed(evt);
@@ -65,12 +67,27 @@ public class Extras extends javax.swing.JFrame {
 
         gps.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         gps.setText("GPS ($13,99 /dia)");
+        gps.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                gpsStateChanged(evt);
+            }
+        });
 
         ninio.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         ninio.setText("Asiento p/niño ($6,99 /dia)");
+        ninio.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ninioStateChanged(evt);
+            }
+        });
 
         danio.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         danio.setText("Cobertura por daños a terceros ($12,99 /dia)");
+        danio.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                danioStateChanged(evt);
+            }
+        });
 
         aceptar.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         aceptar.setText("Aceptar");
@@ -90,10 +107,6 @@ public class Extras extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(precio))
                     .addComponent(wifi)
                     .addComponent(gps)
                     .addComponent(ninio)
@@ -104,14 +117,14 @@ public class Extras extends javax.swing.JFrame {
                     .addComponent(cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(aceptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(16, 16, 16))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(188, 188, 188)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(195, 195, 195))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,10 +146,7 @@ public class Extras extends javax.swing.JFrame {
                     .addComponent(danio)
                     .addComponent(aceptar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(precio)
-                    .addComponent(cancelar))
+                .addComponent(cancelar)
                 .addGap(14, 14, 14))
         );
 
@@ -150,6 +160,26 @@ public class Extras extends javax.swing.JFrame {
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aceptarActionPerformed
+
+    private void wifiStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_wifiStateChanged
+                
+    }//GEN-LAST:event_wifiStateChanged
+
+    private void asistStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_asistStateChanged
+        
+    }//GEN-LAST:event_asistStateChanged
+
+    private void gpsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_gpsStateChanged
+       
+    }//GEN-LAST:event_gpsStateChanged
+
+    private void ninioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ninioStateChanged
+        
+    }//GEN-LAST:event_ninioStateChanged
+
+    private void danioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_danioStateChanged
+        
+    }//GEN-LAST:event_danioStateChanged
 
     /**
      * @param args the command line arguments
@@ -194,9 +224,7 @@ public class Extras extends javax.swing.JFrame {
     public javax.swing.JCheckBox gps;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel8;
     public javax.swing.JCheckBox ninio;
-    public javax.swing.JLabel precio;
     public javax.swing.JCheckBox wifi;
     // End of variables declaration//GEN-END:variables
 }

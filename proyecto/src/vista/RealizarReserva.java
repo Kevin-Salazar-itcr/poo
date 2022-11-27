@@ -178,6 +178,7 @@ public class RealizarReserva extends javax.swing.JFrame {
             }
         });
 
+        imgCarro.setText("foto");
         imgCarro.setPreferredSize(new java.awt.Dimension(120, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
