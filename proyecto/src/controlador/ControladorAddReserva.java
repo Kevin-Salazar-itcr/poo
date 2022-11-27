@@ -49,8 +49,7 @@ public class ControladorAddReserva implements ActionListener{
     public int cliente;
     /**
      * 
-     * @param ventana Vista actual
-     * @param vistaMenu Vista anterior
+     * constructor del controlador
      */
     public ControladorAddReserva(RealizarReserva ventana, Menu vistaMenu, int cliente) {
         vista = ventana;
@@ -79,7 +78,7 @@ public class ControladorAddReserva implements ActionListener{
                             + "\nmaletas en maletero: " +seleccionado.getCapacidadMaletero()
                             + "\npuertas: "+seleccionado.getNumeroPuertas()
                             + "\nMillas por galon: "+ seleccionado.getMpg()
-                            + "\nSede de recogida: "+ seleccionado.getSedePertenencia();
+                            + "\nSede de recogida: "+ seleccionado.getSedePertenencia().getNombre();
                     JOptionPane.showMessageDialog(null, infoCarro);
                 }catch(Exception exc){
                     

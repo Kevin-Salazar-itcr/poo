@@ -3,15 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controlador;
+import dao.lectorVehiculos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import modelo.EstadoVehiculo;
 import modelo.Vehiculo;
 import vista.Extras;
 import vista.Menu;
@@ -43,7 +50,11 @@ public class ControladorExtras implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Aceptar":{
+            try {
                 procesadoDatos();
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorExtras.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 break;
             }
             case "Cancelar":{
@@ -57,7 +68,7 @@ public class ControladorExtras implements ActionListener {
             }
         }
     }
-    public void procesadoDatos(){
+    public void procesadoDatos() throws IOException{
         //guardado del nuevo txt
         
         double precio = elegido.getCostoPorDia()*diff;
@@ -80,6 +91,8 @@ public class ControladorExtras implements ActionListener {
             precio+=(12.99*diff);
         }
         
+        precio += precio*0.13; //IVA del 13%
+        
         data.add(String.valueOf(precio));
         
         try {
@@ -98,6 +111,38 @@ public class ControladorExtras implements ActionListener {
                 BufferedWriter bw = new BufferedWriter(fw);
                 bw.write(contenido);
                 bw.close();
+                
+                //editado del vehiculo en los datos
+                BufferedReader bf = new BufferedReader(new FileReader("vehiculos/"+elegido.getPlaca()+".txt"));
+                ArrayList<String> lines = new ArrayList<String>();
+                
+                String line = bf.readLine();
+                int contador = 0;
+                while(line != null){
+                    if(contador == 15){
+                        lines.add("INACTIVO");
+                        line = bf.readLine();
+                        contador++;
+                    }else{
+                        lines.add(line);
+                        line = bf.readLine();
+                        contador++;
+                    }
+                }
+                
+                //convertir el arraylist a un string
+                String res = "";
+                for(String ln: lines){
+                    res+=ln+"\n";
+                }
+                
+                File f = new File("vehiculos/"+elegido.getPlaca()+".txt");
+                f.createNewFile();
+                FileWriter fwtr = new FileWriter(f);
+                BufferedWriter bwtr = new BufferedWriter(fwtr);
+                bwtr.write(res);
+                bwtr.close();
+                
                 JOptionPane.showMessageDialog(null, "Reserva agregada exitosamente");
                 
                 e.dispose();

@@ -61,6 +61,19 @@ public class ControladorAddSede implements ActionListener{
         String distrito = vista.distrito.getText();
         String senias = vista.senias.getText();
         
+        if(cedula.equals("") || nombre.equals("") || canton.equals("") || distrito.equals("") || senias.equals("")){
+            JOptionPane.showMessageDialog(null, "Verifique que no hayan campos vacios");
+            return;
+        }
+        
+        try{
+            if(Integer.parseInt(cedula)>=100000000 && Integer.parseInt(cedula)<=999999999){
+                
+            }
+        }catch(NumberFormatException exc){
+            JOptionPane.showMessageDialog(null, "Verifique que la cedula solo contenga 9 digitos");
+            return;
+        }
         try {
             String ruta = "sedes/"+cedula+".txt";
             String contenido = cedula+"\n"+nombre+"\n"+provincia+"\n"+canton+"\n"+distrito+"\n"+senias;

@@ -26,8 +26,10 @@ import javax.swing.JLabel;
  * @author Maverick Madrigal, Andrey Salamanca, Estefani Valverde
  */
 public class receptorCorreos {
-
-    public static void main(String[] args){
+    public receptorCorreos(){
+        
+    }
+    public void leerCorreos(String asunto){
         
        
         Properties props = new Properties();
@@ -49,7 +51,7 @@ public class receptorCorreos {
                 //leer el contenido del correo solo los que tenga asunto "Crear usuario"      
 
                 System.out.println("Asunto : " + messages[i].getSubject());
-                if(messages[i].getSubject().equals("Crear usuario")){
+                if(messages[i].getSubject().equals(asunto)){
                     System.out.println("Mensaje " + (i + 1));
                     System.out.println("De : " + messages[i].getFrom()[0]);
                     System.out.println("Asunto : " + messages[i].getSubject());
@@ -95,13 +97,6 @@ public class receptorCorreos {
         }
     }
 
-    
-
-
-
-    
-   
-
 
     public static void analizarParteDeMensaje(Part p) {
         try {
@@ -124,7 +119,6 @@ public class receptorCorreos {
                         System.out.println("-------------------------------------------------");
 
                         salvarImagenEnFichero(p);
-                        visualizarEnJFrame(p);
                     } else {
                         System.out.println("Recibido " + p.getContentType());
                         System.out.println("-------------------------------------------------");
@@ -135,17 +129,8 @@ public class receptorCorreos {
         }
     }
 
-    private static void visualizarEnJFrame(Part p) throws IOException, MessagingException {
-        JFrame frame = new JFrame();
-        ImageIcon icon = new ImageIcon(ImageIO.read(p.getInputStream()));
-        JLabel label = new JLabel(icon);
-        frame.getContentPane().add(label, BorderLayout.CENTER);
-        frame.pack();
-        frame.setVisible(true);
-    }
-
     private static void salvarImagenEnFichero(Part p) throws IOException, MessagingException, IOException {
-        FileOutputStream fichero = new FileOutputStream("d:/" + p.getFileName());
+        FileOutputStream fichero = new FileOutputStream(p.getFileName());
         InputStream in = p.getInputStream();
         byte[] buffer = new byte[1000];
         int leido = 0;

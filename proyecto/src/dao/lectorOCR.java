@@ -18,7 +18,7 @@ public class lectorOCR {
    public String lectura;
    
    public lectorOCR() throws IOException{
-       lectura = leer("F:/foto.png");
+       lectura = leer("foto.png");
        System.out.println(lectura);
    }
    
@@ -31,7 +31,7 @@ public class lectorOCR {
        }return "";
    }
    
-   public static void main(String[] args) throws IOException{
+   /*public static void main(String[] args) throws IOException{
        lectorOCR l = new lectorOCR();
-   }
+   }*/
 }

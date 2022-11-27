@@ -1,6 +1,7 @@
 
 package controlador;
 import dao.lectorClientes;
+import java.awt.HeadlessException;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.BufferedWriter;
@@ -87,7 +88,6 @@ public class ControladorLogin implements ActionListener{
     public void logueo(){
         try{
             int cedula = Integer.parseInt(vista.jTextField1.getText());
-            
             if(cedula==0){
                 JOptionPane.showMessageDialog(null, "No puede ingresar campos vacíos");
             }else{
@@ -129,8 +129,11 @@ public class ControladorLogin implements ActionListener{
                 }
             }
                   
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No puede ingresar campos vacíos");
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error en la entrada");
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Error inesperado");
+            return;
         }
     }
 }

@@ -165,6 +165,20 @@ public class ControladorAddVehiculo implements ActionListener{
         String modelo = vista.modelo.getText();
         
         //validar que los datos sean correctos
+        try{
+            if(marca != ""
+               && color != ""
+               && Integer.parseInt(kilometraje)>0
+               && Integer.parseInt(numeroPuertas)>=2
+               && Integer.parseInt(millas)>0
+               && Integer.parseInt(alquiler)>0
+               && modelo != ""){
+               //validacion completa
+            }
+        }catch(Exception exc){
+            JOptionPane.showMessageDialog(null, "Verifique que los datos ingresados sean correctos");
+            return false;
+        }
         
         int transm = 0;
         if(auto){
@@ -172,27 +186,28 @@ public class ControladorAddVehiculo implements ActionListener{
         }
         
         try {
+            
             String ruta = "vehiculos/"+placa+".txt";
             String contenido = "";
-            contenido = placa+"\n"+
-                    fabricacion+"\n"+
-                    estilo+"\n"+
-                    motor+"\n"+
-                    color+"\n"+
-                    marca+"\n"+
-                    capacidad+"\n"+
-                    kilometraje+"\n"+
-                    numeroPuertas+"\n"+
-                    vin+"\n"+
-                    millas+"\n"+
-                    sede+"\n"+
-                    alquiler+"\n"+
-                    maletas+"\n"+
-                    String.valueOf(transm)+
-                    "\nACTIVO\n"+
-                    marca+".png"+
-                    "\n1\n"
-                    +modelo;
+            contenido = placa+"\n"+                 //0
+                    fabricacion+"\n"+               //1
+                    estilo+"\n"+                    //2
+                    motor+"\n"+                     //3
+                    color+"\n"+                     //4
+                    marca+"\n"+                     //5
+                    capacidad+"\n"+                 //6
+                    kilometraje+"\n"+               //7
+                    numeroPuertas+"\n"+             //8
+                    vin+"\n"+                       //9
+                    millas+"\n"+                    //10
+                    sede+"\n"+                      //11
+                    alquiler+"\n"+                  //12
+                    maletas+"\n"+                   //13
+                    String.valueOf(transm)+         //14 
+                    "\nACTIVO\n"+                   //15
+                    marca+".png"+                   //16
+                    "\n1\n"                         //17 
+                    +modelo;                        //18
             
             
             File file = new File(ruta);

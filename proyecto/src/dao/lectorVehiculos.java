@@ -66,8 +66,6 @@ public class lectorVehiculos{
             String sede = losVehiculos.get(11);
             Sede laSede=null;
             for(Sede s: l.sedes){
-                System.out.println(s.getCedulaJuridica());
-                System.out.println(sede);
                 if(s.getCedulaJuridica().equals(sede)){
                     laSede = s;
                     break;
