@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
 /**
@@ -34,7 +31,7 @@ public class lectorSedes{
         sedes = new ArrayList<Sede>();
     }
     /**
-     * 
+     * Lee las sedes registradas
      * @return
      * @throws IOException 
      */
@@ -61,7 +58,7 @@ public class lectorSedes{
         return true;
     }
     /**
-     * 
+     * Set de directorio a buscar
      * @param dir 
      */
     public void setDirectorioABuscar(String dir) {

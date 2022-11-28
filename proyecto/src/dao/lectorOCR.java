@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 import net.sourceforge.tess4j.Tesseract;
 import java.io.File;
@@ -13,10 +9,14 @@ import net.sourceforge.tess4j.TesseractException;
 /**
  *
  * @author Andrey Salamanca, Estefani Valverde, Maverick Madrigal
+ * @version 11/25/2022
  */
 public class lectorOCR {
    public String lectura;
    
+   /**
+    * Constructor del ocr para leer imagenes
+    */
    public lectorOCR() throws IOException{
        lectura = leer("foto.png");
        System.out.println(lectura);

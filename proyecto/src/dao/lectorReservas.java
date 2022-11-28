@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
 /**
@@ -35,8 +32,8 @@ public class lectorReservas{
         reservas = new ArrayList<Reserva>();
     }
     /**
-     * 
-     * @return
+     * Metodo para realizar reserva según las necesidades del usuario
+     * @return Boolean
      * @throws IOException 
      */
     public boolean run(){
@@ -101,7 +98,7 @@ public class lectorReservas{
         return true;
     }
     /**
-     * 
+     * set de directorio a buscar
      * @param dir 
      */
     public void setDirectorioABuscar(String dir) {

@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
 /**
  *
  * @author Maverick Madrigal,Estedani Valverde, Estefani Valverde
+ * @version (11/26/2022)
  */
 
 import java.io.File;
@@ -32,7 +30,7 @@ public class lectorVehiculos{
     public ArrayList<Vehiculo> vehiculos;
     
     /**
-     * Funcion que lee los vehiculos
+     * Funcion que lee los vehiculos registraso
      */
     public lectorVehiculos() {
         directorioCarpetaAExaminar = "vehiculos";
@@ -40,8 +38,8 @@ public class lectorVehiculos{
     }
     
     /**
-     * 
-     * @return
+     * Metodo que agregar vehiculos a la flotilla
+     * @return bollean
      * @throws IOException 
      */
     public boolean run() throws IOException {
@@ -103,7 +101,7 @@ public class lectorVehiculos{
     }
     
     /**
-     * 
+     * set de Directorio a buscar
      * @param dir 
      */
     public void setDirectorioABuscar(String dir) {

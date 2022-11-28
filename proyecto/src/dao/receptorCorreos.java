@@ -24,11 +24,16 @@ import javax.swing.JLabel;
 /**
  *
  * @author Maverick Madrigal, Andrey Salamanca, Estefani Valverde
+ * @version (11/26/2022)
  */
 public class receptorCorreos {
     public receptorCorreos(){
         
     }
+    /**
+     * Lee los correos recibidos
+     * @param asunto 
+     */
     public void leerCorreos(String asunto){
         
        
@@ -96,8 +101,11 @@ public class receptorCorreos {
             e.printStackTrace();
         }
     }
-
-
+    /**
+     * Metodo que analiza los mensajes 
+     * @param p 
+     */
+    
     public static void analizarParteDeMensaje(Part p) {
         try {
             if (p.isMimeType("multipart/*")) {
@@ -128,7 +136,15 @@ public class receptorCorreos {
         } catch (IOException | MessagingException e) {
         }
     }
-
+    
+    /**
+     * Metodo guarda la imagen al fichero
+     * @param p
+     * @throws IOException
+     * @throws MessagingException
+     * @throws IOException 
+     */
+    
     private static void salvarImagenEnFichero(Part p) throws IOException, MessagingException, IOException {
         FileOutputStream fichero = new FileOutputStream(p.getFileName());
         InputStream in = p.getInputStream();

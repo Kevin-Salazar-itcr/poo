@@ -23,6 +23,9 @@ public class lectorClientes{
     private boolean encendido = true;
     public ArrayList<Cliente> clientes;
     
+    /**
+     * Controlador de lector de clientes registrados
+     */
     public lectorClientes() {
         directorioCarpetaAExaminar = "clientes";
         clientes = new ArrayList<Cliente>();
