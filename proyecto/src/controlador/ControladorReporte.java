@@ -146,7 +146,7 @@ public class ControladorReporte implements ActionListener{
         promedio/=data.size();
         
         JOptionPane.showMessageDialog(null, "Rent a Car\n"
-                + "Promedio de la nota de servicio general\n "
+                + "Promedio de la nota de servicio general\n"
                 + "total: "+(Math.round(promedio*100.0)/100.0)
                 + "\nTotal de encuestados: "+data.size());
     }
