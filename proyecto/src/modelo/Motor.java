@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
 /**
- *
- * @author Andrey Salamanca, Maverick Madrigal Bryan
+ * Enumerado del motor del vehiculo
+ * @author Andrey Salamanca, Maverick Madrigal Bryan, Estefani Valverde
+ * @version (11/11/2022)
  */
 public enum Motor {
     GASOLINA, DIESEL, ELECTRICO, HIBRIDO

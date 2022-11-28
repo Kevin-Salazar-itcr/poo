@@ -3,10 +3,10 @@ package modelo;
 import java.util.ArrayList;
 
 /**
- * Enumerador de sedes de un rentACar
+ *  Sedes de un rentACar
  *
  * @author Maverick Madrigal Bryan, Andrey Salamanca, Estefani Valverde
- * @version 1
+ * @version (20/11/2022)
  */
 public class Sede {
     private String nombre;

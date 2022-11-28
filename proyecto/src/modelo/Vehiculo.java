@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 /**
- * 
+ * Vehiculo
  * @author Andrey Salamanca, Maverick Madrigal, Estefani Valverde
+ * @version (24/11/2022)
  */
 public class Vehiculo {
   private String placa;

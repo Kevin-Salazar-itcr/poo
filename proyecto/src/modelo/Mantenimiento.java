@@ -6,7 +6,8 @@ import dao.Fechas;
 /**
  * Clase que modela un mantenimiento
  *
- * @author Andrey Salamanca
+ * @author Andrey Salamanca, Maverick Madrigal Bryan, Estefani Valverde Marin
+ * @version (26/11/2022)
  */
 public class Mantenimiento {
   private static int i = 1;
@@ -17,7 +18,16 @@ public class Mantenimiento {
   private double montoPagado;
   private String detalle;
   private Empresa empresa;
-
+    
+  /**
+   * Constructor de Mantenimiento
+   * @param pTipoMantenimiento Tipo de Mantenimiento
+   * @param pFechaInicio Fecha Inicio 
+   * @param pFechaFinalizacion Fecha de finalizacion 
+   * @param pMontoPagado Monto a Pagar
+   * @param pDetalle Detalle del mantenimiento
+   * @param pEmpresa  Empresa
+   */
     public Mantenimiento(TipoMantenimiento pTipoMantenimiento, Calendar pFechaInicio, 
             Calendar pFechaFinalizacion, double pMontoPagado, String pDetalle, Empresa pEmpresa) {
         
@@ -30,7 +40,11 @@ public class Mantenimiento {
         this.id = i;
         i++;
     }
-
+    
+    /**
+     * 
+     * GETTERS Y SETTERS 
+     */
     public static int getI() {
         return i;
     }
