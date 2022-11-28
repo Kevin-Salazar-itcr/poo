@@ -83,7 +83,7 @@ public class ControladorLogin implements ActionListener{
     }
     
     /**
-     * Funcion que inicia sesion
+     * Funcion que inicia sesion, antes de la ventana de realizar reserva
      */
     public void logueo(){
         try{

@@ -9,7 +9,8 @@ import vista.*;
 import modelo.*;
 /**
  *
- * @author Andrey Salamanca, Maverick Madrigal, Bryan
+ * @author Andrey Salamanca, Maverick Madrigal Bryan, Estefani Valverde
+ * @version (17/11/2022)
  */
 public class ControladorMain implements ActionListener{
     public Menu vistaMenu;
@@ -128,7 +129,10 @@ public class ControladorMain implements ActionListener{
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
     }
-
+    
+    /**
+     * Metodo que inicia la ventana consultar reserva
+     */
     private void iniciarVentanaConsultaReserva() {
         ConsultaReserva ventana = new ConsultaReserva();
         ControladorConsultas c = new ControladorConsultas(ventana,vistaMenu);

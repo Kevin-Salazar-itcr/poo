@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
 import dao.lectorVehiculos;
 import java.awt.event.ActionEvent;
@@ -39,6 +36,15 @@ public class ControladorExtras implements ActionListener {
     public long diff;
     public int cliente;
     
+    /**
+     * Controlador de requerimientos extras
+     * @param e Estras
+     * @param m Menu
+     * @param data ArrayList de Data
+     * @param elegido Vehiculo Elegido
+     * @param diff  Diferencia
+     * @param cliente Cliente
+     */
     public ControladorExtras(Extras e, Menu m, ArrayList<String> data, Vehiculo elegido, long diff, int cliente){
         this.e = e;
         this.m = m;
@@ -51,6 +57,9 @@ public class ControladorExtras implements ActionListener {
     }
     
     @Override
+    /*
+    * Metodo para detectar la opcion pusta por el usuario
+     */
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Aceptar":{
@@ -72,6 +81,10 @@ public class ControladorExtras implements ActionListener {
             }
         }
     }
+    /**
+     * Metodo que se encarga de los servicios opcionales
+     * @throws IOException 
+     */
     public void procesadoDatos() throws IOException{
         //guardado del nuevo txt
         

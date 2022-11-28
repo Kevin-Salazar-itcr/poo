@@ -18,7 +18,7 @@ public class ControladorAddSede implements ActionListener{
    
     
     /**
-     * 
+     * Constructor de Registrar sede
      * @param ventana Ventana actual
      * @param anterior Ventana anterior
      */
@@ -39,6 +39,9 @@ public class ControladorAddSede implements ActionListener{
     }
     
     @Override
+    /**
+     * Metodo para detectar la opcion pusta por el usuario
+     */
     public void actionPerformed(ActionEvent e){
         switch(e.getActionCommand()){
             case "Guardar":
@@ -53,6 +56,11 @@ public class ControladorAddSede implements ActionListener{
         } 
     }
     
+    
+    /**
+     * Metodo que guarda la sede segun los datos puestos por el usuario
+     * Además de hacer la validaciones correspodientes
+     */
     public void guardar(){
         String cedula = vista.cedula.getText();
         String nombre = vista.nombre.getText();

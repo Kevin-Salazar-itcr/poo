@@ -134,7 +134,9 @@ public class ControladorAddReserva implements ActionListener{
         
         generarComboBoxes();
     }
-
+    /**
+     * Metodo para generar combobox donde va a aparecer opciones
+     */
     public void generarComboBoxes(){
         //agregar las sedes
         lectorSedes lector = new lectorSedes();
@@ -197,6 +199,9 @@ public class ControladorAddReserva implements ActionListener{
     
     
     @Override
+    /**
+     * Metodo para detectar la opcion pusta por el usuario
+     */
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "...":{
@@ -231,6 +236,10 @@ public class ControladorAddReserva implements ActionListener{
                 break;
         } 
     }
+    
+    /*
+    * Selecciona carros de acuerdo a los parametros indicados por el item selected
+    */
     
     public void filtrar() throws IOException{
         String estilo = vista.tipo.getSelectedItem().toString();
@@ -270,6 +279,9 @@ public class ControladorAddReserva implements ActionListener{
         this.vehiculos = l.vehiculos;
     }
     
+    /*
+    * Metodo que extra los datos del array list
+    */
     public ArrayList<String> extraerData(){
         ArrayList<String> data = new ArrayList<String>();
         //extraccion de los datos de la interfaz
@@ -289,7 +301,12 @@ public class ControladorAddReserva implements ActionListener{
         return data;
     }    
     
-    
+    /**
+     * Metodo para calcular la fecha
+     * @param start_date Fecha de inicio
+     * @param end_date Fecha de final
+     * @return retorna la con la diferencia de dias
+     */
     public long diferenciaDias(String start_date, String end_date){
         try {
             Date date1=new SimpleDateFormat("dd-MM-yyyy").parse(start_date);
@@ -303,6 +320,9 @@ public class ControladorAddReserva implements ActionListener{
         }
     }
     
+    /**
+     * Metodo que reserva el vehiculo
+     */
     public void reservar(){
         ArrayList<String> data = extraerData();
         extra = new Extras();

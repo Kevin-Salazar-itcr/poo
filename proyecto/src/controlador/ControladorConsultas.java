@@ -65,6 +65,10 @@ public class ControladorConsultas implements ActionListener{
         vista.Volver.addActionListener(this);
         vista.imgCarro.addActionListener(new ActionListener(){
             @Override
+            /**
+             * Metodo que detecta cuando en el objeto hay un cambio y
+             * Dependiendo de la accion ejecuta un codigo
+             */
             public void actionPerformed(ActionEvent e) {
                 try{
                     String infoCarro = "año: " + seleccionado.getAnio()
@@ -85,6 +89,10 @@ public class ControladorConsultas implements ActionListener{
 
         vista.reservas.addItemListener(new ItemListener(){
             @Override
+            /**
+             * Metodo que detecta cuando en el objeto hay un cambio y
+             * Dependiendo de la accion ejecuta un codigo
+             */
             public void itemStateChanged(ItemEvent e) {
                 try{
                     for(Vehiculo v:vehiculos){
@@ -149,7 +157,10 @@ public class ControladorConsultas implements ActionListener{
         
         generarComboBoxes();
     }
-
+    
+    /**
+     * Metodo para generar combobox donde va a aparecer opciones
+     */
     public void generarComboBoxes(){
         //agregar las reservas
         lectorReservas lector = new lectorReservas();
@@ -187,6 +198,9 @@ public class ControladorConsultas implements ActionListener{
     }
 
     @Override
+    /**
+     * Metodo que vuelve al menu principal
+     */
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Volver al menú":{

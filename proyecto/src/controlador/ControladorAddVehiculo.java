@@ -21,15 +21,18 @@ import java.io.FileWriter;
  */
 
 
-/*
-falta llamar la ventana en menu
-falta validar que no falten datos para iniciar la ventana
-*/
+
 public class ControladorAddVehiculo implements ActionListener{
     public Menu vistaMenu;
     public AddVehiculo vista;
     public com.raven.datechooser.DateChooser dateChooser;
     
+    
+    /**
+     * 
+     * @param anterior Ventana actual
+     * @param actual  Ventana anterior
+     */
     public ControladorAddVehiculo(Menu anterior, AddVehiculo actual){
         vistaMenu = anterior;
         vista = actual;
@@ -53,6 +56,9 @@ public class ControladorAddVehiculo implements ActionListener{
         });
     }
     
+    /**
+     * Metodo que genera una placa vin aleatoria
+     */
     public void generarPlacaVIN(){
         long vin = (long) Math.floor(Math.random() * 99_000_000_000_000_000L) + 10_000_000_000_000_000L;
         int placa = new Random().nextInt(900000) + 100000;
@@ -64,6 +70,9 @@ public class ControladorAddVehiculo implements ActionListener{
         vista.placa.setEditable(false);
               
     }
+    /**
+     * Metodo para generar combobox donde va a aparecer opciones
+     */
     
     public void generarComboBoxes(){
         //agregar las sedes
@@ -119,6 +128,9 @@ public class ControladorAddVehiculo implements ActionListener{
     }
     
     @Override
+    /**
+     *  Metodo para detectar la opcion pusta por el usuario
+     */
     public void actionPerformed(ActionEvent e){
         switch(e.getActionCommand()){
             case "...":{
@@ -145,6 +157,10 @@ public class ControladorAddVehiculo implements ActionListener{
         } 
     }
     
+    /**
+     * Metodo que guarda el vehiculo segun los datos puesto por el usuario
+     * Ademas de veficar que los datos sean los correctos
+     */
     public boolean guardar(){
         
         String vin = vista.VIN.getText();
