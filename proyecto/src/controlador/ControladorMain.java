@@ -1,5 +1,6 @@
 
 package controlador;
+import dao.receptorCorreos;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.File;
@@ -38,6 +39,7 @@ public class ControladorMain implements ActionListener{
     public void actionPerformed(ActionEvent e){
         switch(e.getActionCommand()){
             case "Registrar Cliente":
+                registroCliente();
                 break;
             case "Agregar Vehiculo":
                 iniciarVentanaAgregarVehiculo();
@@ -52,10 +54,10 @@ public class ControladorMain implements ActionListener{
                 iniciarVentanaRegistroSedes();
                 break;
             case "Analisis de sentimientos":
-                // iniciarVentanaRecuperarDatos
+                analisisSentimientos();
                 break;
             case "Reportes":
-                // iniciarVentanaReportes
+                iniciarVentanaReportes();
                 break;   
             case "Salir":
                 System.exit(0);
@@ -133,9 +135,23 @@ public class ControladorMain implements ActionListener{
     /**
      * Metodo que inicia la ventana consultar reserva
      */
-    private void iniciarVentanaConsultaReserva() {
+    public void iniciarVentanaConsultaReserva() {
         ConsultaReserva ventana = new ConsultaReserva();
         ControladorConsultas c = new ControladorConsultas(ventana,vistaMenu);
+    }
 
+    public void iniciarVentanaReportes() {
+        Reportes r = new Reportes();
+        ControladorReporte cr = new ControladorReporte(this.vistaMenu, r);
+    }
+
+    public void analisisSentimientos() {
+        receptorCorreos rc = new receptorCorreos();
+        rc.leerCorreos("Encuesta", "sentimientos");
+    }
+
+    public void registroCliente() {
+        receptorCorreos rc = new receptorCorreos();
+        rc.leerCorreos("Crear usuario", "clientes");
     }
 }

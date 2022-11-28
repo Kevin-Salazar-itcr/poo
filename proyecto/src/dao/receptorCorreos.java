@@ -1,8 +1,11 @@
 package dao;
 
 import java.awt.BorderLayout;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,9 +20,7 @@ import javax.mail.Multipart;
 import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,11 +33,10 @@ public class receptorCorreos {
     }
     /**
      * Lee los correos recibidos
-     * @param asunto 
+     * @param asunto asunto a buscar
+     * @param carpeta donde se guarda los correos no leidos
      */
-    public void leerCorreos(String asunto){
-        
-       
+    public void leerCorreos(String asunto, String carpeta){ 
         Properties props = new Properties();
         props.setProperty("mail.pop3.starttls.enable", "false");
         props.setProperty("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -47,23 +47,23 @@ public class receptorCorreos {
 
         try {
             Store store = session.getStore("pop3");
-            store.connect("pop.gmail.com", "trabajosme03@gmail.com", "mphnptseuojioryk");
+            store.connect("pop.gmail.com", "trabajosme03@gmail.com", "mphnptseuojioryk"); //correo usado para propositos del proyecto
             Folder folder = store.getFolder("INBOX"); // This doesn't work for other email account
             folder.open(Folder.READ_ONLY);
             //leer todos los correos no leidos
             Message[] messages = folder.getMessages();
-            for (int i = 0; i < messages.length; i++) {
-                //leer el contenido del correo solo los que tenga asunto "Crear usuario"      
-
-                System.out.println("Asunto : " + messages[i].getSubject());
+            int i = 0;
+            for (i = 0; i < messages.length; i++) {
+                //leer el contenido del correo solo los que tenga asunto igual al dado     
+                
                 if(messages[i].getSubject().equals(asunto)){
-                    System.out.println("Mensaje " + (i + 1));
-                    System.out.println("De : " + messages[i].getFrom()[0]);
-                    System.out.println("Asunto : " + messages[i].getSubject());
-                    System.out.println("Fecha : " + messages[i].getSentDate());
-                    System.out.println("Contenido : " + messages[i].getContent());
-                    System.out.println("-------------------------------------------------");
-                    //leer el contenido del correo
+                    File f = new File(carpeta+"/"+(String.valueOf(messages[i].getFrom()[0]))+(String.valueOf(messages[i].getSentDate()))+".txt");
+                    f.createNewFile();
+                    FileWriter fwtr = new FileWriter(f);
+                    BufferedWriter bwtr = new BufferedWriter(fwtr);
+                    bwtr.write((String) messages[i].getContent()); //guardar el contenido en el txt
+                    bwtr.close();
+                    
                     Multipart multiPart = (Multipart) messages[i].getContent();
                     for (int j = 0; j < multiPart.getCount(); j++) {
                         Part part = multiPart.getBodyPart(j);
@@ -74,6 +74,7 @@ public class receptorCorreos {
                             //part.saveFile(fileName);
                             System.out.println("Archivo adjunto : " + fileName);
                         } else {
+                            
                             //verificar si el contenido es una imagen
                             if (part.isMimeType("image/*")) {
                                 //guardar la imagen en la carpeta del proyecto
@@ -95,64 +96,12 @@ public class receptorCorreos {
 
             folder.close(false);
             store.close();
+            JOptionPane.showMessageDialog(null, "Se han recuperado "+i+" nuevos correos no leídos");
+            
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-    /**
-     * Metodo que analiza los mensajes 
-     * @param p 
-     */
-    
-    public static void analizarParteDeMensaje(Part p) {
-        try {
-            if (p.isMimeType("multipart/*")) {
-                Multipart multi;
-                multi = (Multipart) p.getContent();
-
-                for (int j = 0; j < multi.getCount(); j++) {
-                    analizarParteDeMensaje(multi.getBodyPart(j));
-                }
-            } else {
-                if (p.isMimeType("text/*")) {
-                    System.out.println("Texto " + p.getContentType());
-                    System.out.println(p.getContent());
-                    System.out.println("-------------------------------------------------");
-                } else {
-                    if (p.isMimeType("image/*")) {
-                        System.out.println("Imagen " + p.getContentType());
-                        System.out.println("Fichero= " + p.getFileName());
-                        System.out.println("-------------------------------------------------");
-
-                        salvarImagenEnFichero(p);
-                    } else {
-                        System.out.println("Recibido " + p.getContentType());
-                        System.out.println("-------------------------------------------------");
-                    }
-                }
-            }
-        } catch (IOException | MessagingException e) {
-        }
-    }
-    
-    /**
-     * Metodo guarda la imagen al fichero
-     * @param p
-     * @throws IOException
-     * @throws MessagingException
-     * @throws IOException 
-     */
-    
-    private static void salvarImagenEnFichero(Part p) throws IOException, MessagingException, IOException {
-        FileOutputStream fichero = new FileOutputStream(p.getFileName());
-        InputStream in = p.getInputStream();
-        byte[] buffer = new byte[1000];
-        int leido = 0;
-
-        while ((leido = in.read(buffer)) > 0) {
-            fichero.write(buffer, 0, leido);
         }
     }
 }
