@@ -47,7 +47,7 @@ public class lectorSentimientos{
             //recortar la parte del numero
             String numero = String.valueOf(sents.get(0).charAt((sents.get(0).length())-2 ))
                     +String.valueOf(sents.get(0).charAt((sents.get(0).length())-1 )); //el numero se encuentra en las ultimas 2 posiciones de la primera linea
-            System.out.println(numero);
+            System.out.println("*"+numero+"*");
             
             try{
                 if(numero.charAt(0)==' '){

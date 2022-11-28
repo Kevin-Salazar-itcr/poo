@@ -57,7 +57,7 @@ public class receptorCorreos {
                 //leer el contenido del correo solo los que tenga asunto igual al dado     
                 
                 if(messages[i].getSubject().equals(asunto)){
-                    File f = new File(carpeta+"/"+(String.valueOf(messages[i].getFrom()[0]))+(String.valueOf(messages[i].getSentDate()))+".txt");
+                    File f = new File(carpeta+"/usuario"+i+".txt");
                     f.createNewFile();
                     FileWriter fwtr = new FileWriter(f);
                     BufferedWriter bwtr = new BufferedWriter(fwtr);
@@ -96,7 +96,7 @@ public class receptorCorreos {
 
             folder.close(false);
             store.close();
-            JOptionPane.showMessageDialog(null, "Se han recuperado "+i+" nuevos correos no leídos");
+            JOptionPane.showMessageDialog(null, "Se han recuperado "+(i-1)+" nuevos correos no leídos");
             
         } catch (MessagingException e) {
             e.printStackTrace();

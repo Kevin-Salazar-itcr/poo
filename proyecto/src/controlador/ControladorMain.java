@@ -5,9 +5,13 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import vista.*;
 import modelo.*;
+import org.apache.commons.io.FileUtils;
 /**
  *
  * @author Andrey Salamanca, Maverick Madrigal Bryan, Estefani Valverde
@@ -146,12 +150,31 @@ public class ControladorMain implements ActionListener{
     }
 
     public void analisisSentimientos() {
+        JOptionPane.showMessageDialog(null, "Atencion!\nEsta opcion carga las encuestas hechas a clientes para"
+                + "para evaluar los estandares de la empresa.\n"
+                + "Dicha carga se hace de manera automática, por lo cual\n"
+                + "no requiere de asistencia del personal\nGracias por utilizar nuestros servicios");
         receptorCorreos rc = new receptorCorreos();
         rc.leerCorreos("Encuesta", "sentimientos");
+        return;
     }
 
     public void registroCliente() {
+        JOptionPane.showMessageDialog(null, "Atencion!\nEsta opcion carga las solicitudes de clientes para ingresar al sistema\n"
+                + "Dicha carga se hace de manera automática, por lo cual\n"
+                + "no requiere de asistencia del personal\nGracias por utilizar nuestros servicios");
+        try {
+            FileUtils.cleanDirectory(new File("clientes")); //limpieza de la carpeta antes de cargar correos nuevos
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
         receptorCorreos rc = new receptorCorreos();
         rc.leerCorreos("Crear usuario", "clientes");
+        
+        
+        
+        //al finalizar indicar cuantos clientes nuevos se agregaron
+        JOptionPane.showMessageDialog(null, "Atencion!\nSolicitudes cargadas");
+        
     }
 }
